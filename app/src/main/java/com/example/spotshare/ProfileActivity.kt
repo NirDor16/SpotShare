@@ -77,13 +77,13 @@ class ProfileActivity : AppCompatActivity() {
         })
     }
 
-
     private fun openEditPostActivity(postId: String, post: Post) {
         val intent = Intent(this, EditPostActivity::class.java).apply {
             putExtra("postId", postId)
             putExtra("placeName", post.placeName)
             putExtra("description", post.description)
             putExtra("category", post.category)
+            putExtra("imageUrl", post.imageUrl ?: "")
         }
         startActivity(intent)
     }
