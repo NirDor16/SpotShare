@@ -21,7 +21,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // הגדרת כפתור חזור
         val backButton: ImageButton = findViewById(R.id.btn_back)
         backButton.setOnClickListener {
             finish()

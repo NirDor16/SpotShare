@@ -21,7 +21,6 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // עריכת פוסטים
         adapter = PostAdapter(userPosts, userPostIds, object : OnPostEditListener {
             override fun onEdit(post: Post, postId: String) {
                 openEditPostActivity(postId, post)
@@ -31,11 +30,9 @@ class ProfileActivity : AppCompatActivity() {
         binding.profileRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.profileRecyclerView.adapter = adapter
 
-        // תפריט תחתון
         binding.bottomNavigation.selectedItemId = R.id.nav_profile
         BottomNavigationViewHelper.setup(binding.bottomNavigation, this)
 
-        // כפתור התנתקות
         binding.profileBTNLogout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LoginActivity::class.java)
@@ -63,7 +60,6 @@ class ProfileActivity : AppCompatActivity() {
                     }
                 }
 
-                // מיון לפי זמן בירידה
                 val sorted = tempPosts.sortedByDescending { it.first.timestamp ?: 0L }
 
                 userPosts.clear()

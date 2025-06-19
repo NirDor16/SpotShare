@@ -20,7 +20,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBKlfAeYs7_bCAbYW3HAZ1Tg6dQnQTWsgg" />
-        <!-- מסך התחברות (ראשי) -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -30,29 +29,20 @@
             </intent-filter>
         </activity>
 
-        <!-- מסך ראשי -->
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
 
-        <!-- מסך הוספת פוסט -->
 
         <activity android:name=".AddPostActivity"
             android:windowSoftInputMode="stateHidden" />
 
 
-        <!-- מסך פרופיל משתמש -->
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
 
-        <!-- מסכים נוספים -->
-        <activity
-            android:name=".FirestoreActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StorageActivity"
-            android:exported="false" />
 
         <activity
             android:name=".EditPostActivity"

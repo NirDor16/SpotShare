@@ -50,7 +50,6 @@ class FavoritesActivity : AppCompatActivity() {
                     }
                 }
 
-                // מיון לפי זמן בירידה
                 val sorted = tempPosts.sortedByDescending { it.first.timestamp ?: 0L }
 
                 favoritePosts.clear()

@@ -9,5 +9,5 @@ data class Post(
     var likedBy: List<String> = listOf(),
     var latitude: Double? = null,
     var longitude: Double? = null,
-    var timestamp: Long = 0L  // חדש: לשמירת זמן יצירת הפוסט
+    var timestamp: Long = 0L
 )

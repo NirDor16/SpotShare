@@ -45,8 +45,8 @@ class LoginActivity : AppCompatActivity() {
         val signInIntent = AuthUI.getInstance()
             .createSignInIntentBuilder()
             .setAvailableProviders(providers)
-            .setTheme(R.style.FirebaseLoginTheme) // 💡 מצביע ל־styles.xml שהגדרנו קודם
-            .setLogo(R.drawable.app_logo) // 💡 ודא שקובץ לוגו בתיקיית res/drawable
+            .setTheme(R.style.FirebaseLoginTheme)
+            .setLogo(R.drawable.app_logo)
             .build()
 
         signInLauncher.launch(signInIntent)
@@ -61,10 +61,7 @@ class LoginActivity : AppCompatActivity() {
             val user = FirebaseAuth.getInstance().currentUser
             transactToMainActivity()
         } else {
-            // Sign in failed. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
+
             Toast
                 .makeText(this,
                     "Error: Failed Logging in.",

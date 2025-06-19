@@ -11,7 +11,6 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.getValue
 
 interface OnPostEditListener {
     fun onEdit(post: Post, postId: String)
