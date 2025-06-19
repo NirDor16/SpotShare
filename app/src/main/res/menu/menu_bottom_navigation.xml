@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="בית" />
+
+    <item
+        android:id="@+id/nav_add_post"
+        android:icon="@drawable/baseline_add_location_24"
+        android:title="הוסף" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="פרופיל" />
+
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/bleackheart"
+    android:title="מועדפים" />
+
+</menu>

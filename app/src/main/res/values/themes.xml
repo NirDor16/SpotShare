@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme -->
+    <style name="Base.Theme.SpotShare" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here -->
+    </style>
+
+    <style name="Theme.SpotShare" parent="Base.Theme.SpotShare" />
+
+    <!-- Theme for Firebase Login screen -->
+    <style name="FirebaseLoginTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryVariant">@android:color/white</item>
+        <item name="colorOnPrimary">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+</resources>

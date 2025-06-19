@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_post_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundGray"
+    tools:context=".EditPostActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="עריכת פוסט"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/textDark"
+                android:layout_marginBottom="16dp" />
+
+            <EditText
+                android:id="@+id/edit_ET_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="שם המקום"
+                android:backgroundTint="@color/primaryColor"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/edit_ET_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="תיאור"
+                android:backgroundTint="@color/primaryColor"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
+
+            <!-- תצוגת תמונה קיימת -->
+            <ImageView
+                android:id="@+id/editImagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="12dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="תצוגת תמונה"
+                android:src="@drawable/image" />
+
+
+            <!-- כפתור בחירת תמונה -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/editImageSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="בחר תמונה חדשה"
+                android:icon="@drawable/baseline_add_a_photo_24"
+                app:iconPadding="8dp"
+                app:cornerRadius="12dp"
+                android:backgroundTint="@color/primaryColor"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="24dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/edit_BTN_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="שמור שינויים"
+                android:icon="@drawable/baseline_check_24"
+                app:iconPadding="8dp"
+                app:cornerRadius="12dp"
+                android:backgroundTint="@color/primaryColor"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="24dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- תפריט תחתון -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:menu="@menu/menu_bottom_navigation"
+        app:itemIconTint="@color/primaryColor"
+        app:itemTextColor="@color/primaryColor" />
+</LinearLayout>

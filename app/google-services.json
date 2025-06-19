@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "105296478954",
+    "firebase_url": "https://spotshare-d894c-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "spotshare-d894c",
+    "storage_bucket": "spotshare-d894c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105296478954:android:72e1b021d4fab7dc2e8d93",
+        "android_client_info": {
+          "package_name": "com.example.spotshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105296478954-t9ogs46pu50p2e72bmu3dl2isu7ub9lb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spotshare",
+            "certificate_hash": "a77b664950fade3ca81de974f438b79616eca6d3"
+          }
+        },
+        {
+          "client_id": "105296478954-cdu2ovprl2fajvnug9ap73pj64h2kgv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlQhX529BgkmxnYwi4VsWVVsw1ut8n2fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105296478954-cdu2ovprl2fajvnug9ap73pj64h2kgv6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
