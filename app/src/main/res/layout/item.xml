@@ -41,7 +41,6 @@
             android:textColor="@android:color/white"
             android:layout_gravity="start"/>
 
-        <!-- כאן הוספנו את המפה -->
         <com.google.android.gms.maps.MapView
             android:id="@+id/post_MAP_view"
             android:layout_width="match_parent"
@@ -65,7 +64,7 @@
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="2dp" />
 
-        <!-- שורת כפתורי לייק + עריכה -->
+        <!-- שורת כפתורי לייק + עריכה + מחיקה -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,6 +90,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ערוך"
+                android:layout_gravity="end"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/post_BTN_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="מחק"
                 android:layout_gravity="end" />
         </LinearLayout>
 

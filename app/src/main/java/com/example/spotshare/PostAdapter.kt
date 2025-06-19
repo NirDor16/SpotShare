@@ -1,9 +1,8 @@
 package com.example.spotshare
 
+import android.app.AlertDialog
 import android.content.Intent
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -11,6 +10,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 
 interface OnPostEditListener {
     fun onEdit(post: Post, postId: String)
@@ -30,6 +30,7 @@ class PostAdapter(
         val description: TextView = itemView.findViewById(R.id.post_LBL_description)
         val category: TextView = itemView.findViewById(R.id.post_LBL_category)
         val editButton: Button = itemView.findViewById(R.id.post_BTN_edit)
+        val deleteButton: Button = itemView.findViewById(R.id.post_BTN_delete)
         val likeButton: ImageView = itemView.findViewById(R.id.post_IMG_like)
         val mapView: MapView = itemView.findViewById(R.id.post_MAP_view)
         val showMapButton: Button = itemView.findViewById(R.id.post_BTN_show_map)
@@ -93,13 +94,19 @@ class PostAdapter(
 
         if (editListener != null) {
             holder.editButton.visibility = View.VISIBLE
+            holder.deleteButton.visibility = View.VISIBLE
             holder.editButton.setOnClickListener {
                 editListener.onEdit(post, postId)
             }
+            holder.deleteButton.setOnClickListener {
+                confirmDelete(holder.itemView, postId)
+            }
+
             holder.mapView.visibility = View.GONE
             holder.showMapButton.visibility = View.GONE
         } else {
             holder.editButton.visibility = View.GONE
+            holder.deleteButton.visibility = View.GONE
             holder.bindMap(post.latitude, post.longitude)
             holder.showMapButton.visibility = View.VISIBLE
 
@@ -115,6 +122,36 @@ class PostAdapter(
 
         holder.onResumeMap()
     }
+
+    private fun confirmDelete(view: View, postId: String) {
+        AlertDialog.Builder(view.context)
+            .setTitle("מחיקת פוסט")
+            .setMessage("האם אתה בטוח שברצונך למחוק את הפוסט?")
+            .setPositiveButton("מחק") { _, _ -> deletePost(view, postId) }
+            .setNegativeButton("בטל", null)
+            .show()
+    }
+
+    private fun deletePost(view: View, postId: String) {
+        val postRef = FirebaseDatabase.getInstance().getReference("posts").child(postId)
+        val storageRef = FirebaseStorage.getInstance().getReference("images/$postId.jpg")
+
+        postRef.removeValue()
+            .addOnSuccessListener {
+                storageRef.delete()
+                    .addOnSuccessListener {
+                        Toast.makeText(view.context, "הפוסט נמחק בהצלחה", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(view.context, "הפוסט נמחק אך התמונה לא נמחקה", Toast.LENGTH_SHORT).show()
+                    }
+            }
+            .addOnFailureListener {
+                Toast.makeText(view.context, "שגיאה במחיקת הפוסט", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    override fun getItemCount(): Int = posts.size
 
     private fun toggleLike(postId: String, currentlyLiked: Boolean) {
         val ref = FirebaseDatabase.getInstance().getReference("posts").child(postId).child("likedBy")
@@ -133,6 +170,4 @@ class PostAdapter(
             override fun onComplete(error: DatabaseError?, committed: Boolean, currentData: DataSnapshot?) {}
         })
     }
-
-    override fun getItemCount(): Int = posts.size
 }
