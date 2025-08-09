@@ -27,34 +27,6 @@ SpotShare is a social recommendation app built for Android. Users can upload pos
 - **Map**: Google Maps SDK  
 - **Image Loading**: Glide
 
----
-
-## 📱 Screenshots
-
-> Add screenshots of the main screens here:
-- Home Feed  
-- Add Post Screen  
-- Edit Post Screen  
-- Map View  
-- Profile Page  
-
----
-
-## ▶️ Demo Video
-
-> [Insert a link to your YouTube or Google Drive demo here]
-
----
-
-## 🔧 How to Run
-
-1. Clone the repository  
-2. Open in Android Studio  
-3. Add your `google-services.json` file (Firebase project setup)  
-4. Make sure your Firebase Realtime Database and Storage rules allow testing  
-5. Run the app on an emulator or device
-
----
 
 ## 📁 Folder Structure
 
